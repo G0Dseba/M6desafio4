@@ -1,31 +1,25 @@
-<%= form_with(model: @photograph, local: true) do |form| %>
-  <% if @photograph.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@photograph.errors.count, "error") %> prohibited this photograph from being saved:</h2>
-      <ul>
-        <% @photograph.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="container mt-5">
+  <h1><%= action_name == 'new' ? 'Nueva Fotografía' : 'Editar Fotografía' %></h1>
+
+  <%= form_with(model: @photograph, local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :image %>
+      <%= form.file_field :image, class: "form-control-file" %>
+    </div>
+    <div class="actions">
+      <%= form.submit class: "btn btn-primary" %>
+      <%= link_to 'Cancelar', photographs_path, class: "btn btn-secondary" %>
     </div>
   <% end %>
+</div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "form-control" %>
-  </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
-<% end %>

@@ -1,21 +1,21 @@
-<h1>Fotografías de Karina</h1>
-
-<% if user_signed_in? && current_user.is_karina? %>
-  <%= link_to 'Subir nueva fotografía', new_photograph_path, class: 'btn btn-primary mb-3' %>
-<% end %>
-
-<div class="row">
-  <% @photographs.each do |photograph| %>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <%= image_tag url_for(photograph.image), class: 'card-img-top', alt: photograph.title %>
-        <div class="card-body">
-          <h5 class="card-title"><%= photograph.title %></h5>
-          <p class="card-text"><%= truncate(photograph.description, length: 100) %></p>
-          <%= link_to 'Ver detalles', photograph_path(photograph), class: 'btn btn-primary' %>
+<div class="container mt-5">
+  <h1>Galería de Fotografías</h1>
+  <div class="row">
+    <% @photographs.each do |photograph| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <%= image_tag photograph.image, class: "card-img-top" if photograph.image.attached? %>
+          <div class="card-body">
+            <h5 class="card-title"><%= photograph.title %></h5>
+            <p class="card-text"><%= photograph.description %></p>
+            <%= link_to 'Ver', photograph, class: "btn btn-primary" %>
+            <% if current_user.is_karina? %>
+              <%= link_to 'Editar', edit_photograph_path(photograph), class: "btn btn-secondary" %>
+              <%= link_to 'Eliminar', photograph, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-

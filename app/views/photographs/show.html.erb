@@ -1,26 +1,23 @@
-<h1><%= @photograph.title %></h1>
-<img src="<%= url_for(@photograph.image) %>" alt="<%= @photograph.title %>" class="img-fluid">
-<p><%= @photograph.description %></p>
+<div class="container mt-5">
+  <h1><%= @photograph.title %></h1>
+  <p><%= @photograph.description %></p>
+  <%= image_tag @photograph.image, class: "img-fluid mb-4" if @photograph.image.attached? %>
 
-<h2>Comentarios</h2>
-<% @photograph.comments.each do |comment| %>
-  <div class="comment mb-3">
-    <div class="comment-user d-flex align-items-center">
-      <img src="<%= url_for(comment.user.profile_picture) %>" alt="<%= comment.user.name %>" class="img-thumbnail mr-2" width="50">
-      <strong><%= comment.user.name %></strong>
+  <h3>Comentarios</h3>
+  <% @photograph.comments.each do |comment| %>
+    <div class="media mt-3">
+      <%= image_tag comment.user.profile_picture, class: "mr-3 rounded-circle", width: 50, height: 50 if comment.user.profile_picture.attached? %>
+      <div class="media-body">
+        <h5 class="mt-0"><%= comment.user.email %></h5>
+        <p><%= comment.content %></p>
+      </div>
     </div>
-    <p class="mt-2"><%= comment.content %></p>
-  </div>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= form_with model: [ @photograph, Comment.new ], local: true do |form| %>
-    <div class="mb-3">
-      <%= form.label :content, "Añadir un comentario" %>
-      <%= form.text_area :content, class: "form-control" %>
-    </div>
-    <%= form.submit "Comentar", class: "btn btn-primary" %>
   <% end %>
-<% else %>
-  <p><%= link_to "Inicia sesión", new_user_session_path %> para añadir un comentario.</p>
-<% end %>
+
+  <% if current_user.is_karina? %>
+    <%= link_to 'Editar', edit_photograph_path(@photograph), class: "btn btn-secondary mt-3" %>
+    <%= link_to 'Eliminar', @photograph, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger mt-3" %>
+  <% end %>
+  <%= link_to 'Volver', photographs_path, class: "btn btn-primary mt-3" %>
+</div>
+
