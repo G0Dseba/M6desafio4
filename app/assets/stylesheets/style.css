@@ -1,0 +1,99 @@
+#mi-navbar {
+    background-color: #232f3e;
+    border-bottom: 2px solid #ff9900;
+  }
+  
+  #mi-navbar .navbar-brand {
+    color: #ff9900 !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  #mi-navbar .nav-link {
+    color: #ffffff !important;
+    margin-right: 1rem;
+  }
+  
+  #mi-navbar .nav-link:hover {
+    color: #ff9900 !important;
+  }
+  
+  #mi-navbar .navbar-toggler {
+    border-color: #ff9900;
+  }
+  
+  #mi-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28%255, 153, 0, 1%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  
+  .btn-primary {
+    background-color: #ff9900;
+    border-color: #e47911;
+    color: #232f3e;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e47911;
+    border-color: #ff9900;
+    color: #ffffff;
+  }
+  
+  .btn-secondary {
+    background-color: #f8bbd0;
+    border-color: #f48fb1;
+    color: #232f3e;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #f48fb1;
+    border-color: #f8bbd0;
+    color: #ffffff;
+  }
+  
+  .form-control {
+    border-color: #e47911;
+  }
+  
+  .form-control:focus {
+    border-color: #ff9900;
+    box-shadow: 0 0 0 0.2rem rgba(255, 153, 0, 0.25);
+  }
+  
+  .table {
+    background-color: #ffebee;
+  }
+  
+  .table th, .table td {
+    border-color: #e47911;
+  }
+  
+  .alert {
+    border-color: #e47911;
+    background-color: #ff9900;
+    color: #232f3e;
+  }
+  
+  .alert-dismissible .btn-close {
+    color: #232f3e;
+  }
+
+  h1, h3 {
+    color: #b71c1c !important;
+  }
+
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  color: #b71c1c;
+}
+
+  
+  

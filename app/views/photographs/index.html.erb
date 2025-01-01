@@ -1,0 +1,21 @@
+<h1>Fotografías de Karina</h1>
+
+<% if user_signed_in? && current_user.is_karina? %>
+  <%= link_to 'Subir nueva fotografía', new_photograph_path, class: 'btn btn-primary mb-3' %>
+<% end %>
+
+<div class="row">
+  <% @photographs.each do |photograph| %>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag url_for(photograph.image), class: 'card-img-top', alt: photograph.title %>
+        <div class="card-body">
+          <h5 class="card-title"><%= photograph.title %></h5>
+          <p class="card-text"><%= truncate(photograph.description, length: 100) %></p>
+          <%= link_to 'Ver detalles', photograph_path(photograph), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

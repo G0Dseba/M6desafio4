@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+<img src="<%= url_for(@user.profile_picture) %>" alt="<%= @user.name %>" class="img-thumbnail">
+<p>Email: <%= @user.email %></p>
+
+<%= link_to "Editar Perfil", edit_user_registration_path, class: "btn btn-secondary" %>
+<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+
