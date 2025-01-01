@@ -95,5 +95,16 @@
   color: #b71c1c;
 }
 
+.form-control-file {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 5px;
+}
+
+.img-thumbnail {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
   
   

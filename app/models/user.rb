@@ -9,5 +9,9 @@ class User < ApplicationRecord
   validates :profile_picture, presence: true
 
   attribute :is_karina, :boolean, default: false
+
+  def is_karina?
+    email == "karina@example.com"
+  end
 end
 

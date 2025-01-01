@@ -1,25 +1,26 @@
-<div class="container mt-5">
-  <h1><%= action_name == 'new' ? 'Nueva Fotografía' : 'Editar Fotografía' %></h1>
+<h1>Nueva Fotografía</h1>
 
-  <%= form_with(model: @photograph, local: true) do |form| %>
-    <div class="form-group">
-      <%= form.label :title %>
-      <%= form.text_field :title, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :description %>
-      <%= form.text_area :description, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :image %>
-      <%= form.file_field :image, class: "form-control-file" %>
-    </div>
-    <div class="actions">
-      <%= form.submit class: "btn btn-primary" %>
-      <%= link_to 'Cancelar', photographs_path, class: "btn btn-secondary" %>
-    </div>
-  <% end %>
-</div>
+<%= form_for @photograph, html: { multipart: true } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Título" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, "Descripción" %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image, "Imagen" %>
+    <%= f.file_field :image, class: "form-control-file" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Subir Fotografía", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 
 
 

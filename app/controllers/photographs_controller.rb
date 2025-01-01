@@ -75,3 +75,4 @@ class PhotographsController < ApplicationController
       redirect_to root_path, alert: 'Sólo Karina puede subir fotos.' unless current_user.is_karina?
     end
 end
+
